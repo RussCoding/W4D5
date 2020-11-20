@@ -21,9 +21,9 @@ def subsum(list)
             subs << list[i..j] if j >= i #O(n)
         end
     end # => O(n^3)
-    # O(n)
+    # O(n^2)
     subs.map{|sub| sub.sum}.max # => O(n)
-end # => O(n^3) + O(n^2) => O(n^3)
+end # => O(n^3) + O(n^3) => O(n^3)
 
 def better_subsum(list)
     largest_sum = nil # O(1)
@@ -47,13 +47,13 @@ def better_subsum(list)
     end
     largest_sum # O(1)
 end # => O(n) + O(1) + O(1) => O(n)
-list3 = [-5, -1, -3]
 
 list = [5, 3, -7]
-p better_subsum(list) # => 8
+p subsum(list) # => 8
 list2 = [2, 3, -6, 7, -6, 7]
-p better_subsum(list2) # => 8 (from [7, -6, 7])
-p better_subsum(list3) # => -1 (from [-1])
+# p better_subsum(list2) # => 8 (from [7, -6, 7])
+list3 = [-5, -1, -3]
+# p better_subsum(list3) # => -1 (from [-1])
 # possible sub-sums
 [5]           # => 5
 [5, 3]        # => 8 --> we want this one
